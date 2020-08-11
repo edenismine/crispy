@@ -27,6 +27,7 @@ export class RepositoryError extends Error {
   private constructor(
     public readonly type: RepositoryErrorType,
     public readonly message: string = RepositoryError.defaultMessage[type],
+    public readonly reason?: Error,
     public readonly name: string = 'RepositoryError.' + type,
   ) {
     super(message)
@@ -43,7 +44,7 @@ export class RepositoryError extends Error {
     type: RepositoryErrorType,
     error: Error,
   ): RepositoryError {
-    return new RepositoryError(type, error.message)
+    return new RepositoryError(type, error.message, error)
   }
 
   public static ofAny(
@@ -51,7 +52,7 @@ export class RepositoryError extends Error {
     obj: unknown,
   ): RepositoryError {
     const error = obj instanceof Error ? obj : new Error(`${obj}`)
-    return new RepositoryError(type, error.message)
+    return new RepositoryError(type, error.message, error)
   }
 
   toString(): string {
