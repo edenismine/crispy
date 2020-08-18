@@ -11,7 +11,10 @@ export type NestedCollectionRepository<T> = CrudRepository<
 > & {
   readonly readAllOf: ReadAllOf<T>
 }
-export const NestedCollectionRepository = <Entity, Model>(
+export const NestedCollectionRepository = <
+  Entity extends Record<string, unknown>,
+  Model
+>(
   context: NestedCollectionContext<Entity, Model>,
   entityReader: EntityReader<Entity, Nested<Model>>,
   entityWriter: EntityWriter<Entity, Nested<Model>>,

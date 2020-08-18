@@ -7,7 +7,11 @@ import { CrudRepository } from './CrudRepository'
 export type CollectionRepository<T, ID> = CrudRepository<T, ID> & {
   readonly readAll: ReadAll<T>
 }
-export const CollectionRepository = <Entity, Model, ID>(
+export const CollectionRepository = <
+  Entity extends Record<string, unknown>,
+  Model,
+  ID
+>(
   context: CollectionContext<Entity, Model, ID>,
   entityReader: EntityReader<Entity, Model>,
   entityWriter: EntityWriter<Entity, Model>,

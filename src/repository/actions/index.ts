@@ -1,5 +1,7 @@
 export { CreateOne } from './CreateOne'
 export { DeleteOne } from './DeleteOne'
+export { QueryMatching } from './QueryMatching'
+export { QueryMatchingOf } from './QueryMatchingOf'
 export { ReadAll } from './ReadAll'
 export { ReadAllOf } from './ReadAllOf'
 export { ReadOne } from './ReadOne'
