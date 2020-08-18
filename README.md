@@ -1,3 +1,3 @@
-# crispy-repository
+# Crispy Repository
 
-asdasd
+Crispy is a functional-style firestore repository library.
